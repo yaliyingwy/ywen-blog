@@ -1,0 +1,14 @@
+{
+    "css": [
+        "bootstrap/dist/css/bootstrap.css",
+        "clean-blog.css"
+    ],
+    "js": [
+        "jquery/dist/jquery.js",
+        "bootstrap/dist/js/bootstrap.js",
+        "angular/angular.js",
+        "angular-bootstrap/ui-bootstrap.js",
+        "angular-resource/angular-resource.js",
+        "angular-ui-router/release/angular-ui-router.js"
+    ]
+}

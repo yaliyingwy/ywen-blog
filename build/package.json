@@ -1,0 +1,9 @@
+{
+    "name": "cloud-code-ing",
+    "description": "Cloud Code ing project.",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "swig": "latest"
+    }
+}

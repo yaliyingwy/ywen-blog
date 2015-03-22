@@ -1,0 +1,27 @@
+{
+  "name": "ywen_blog",
+  "description": "A blog use leancloud",
+  "version": "0.1.0",
+  "author": "ywen <yaliyingwy@gmail.com>",
+  "contributors": [
+    {
+      "name": "ywen",
+      "mail": "yaliyingwy@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yaliyingwy/ywen-blog"
+  },
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-less": "latest",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-shell": "latest",
+    "grunt-concurrent": "latest",
+    "grunt-contrib-copy": "latest",
+    "load-grunt-tasks": "^0.4.0"
+  }
+}
