@@ -1,26 +1,21 @@
-# [Start Bootstrap](http://startbootstrap.com/) - [Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/)
+# [ywen blog](https://ywen.avosapps.com/)
 
-[Clean Blog](http://startbootstrap.com/template-overviews/clean-blog/) is a stylish, responsive blog theme for [Bootstrap](http://getbootstrap.com/) created by [Start Bootstrap](http://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working PHP contact form.
+[ywen Blog](https://ywen.avosapps.com/)是从[clean-blog](https://github.com/IronSummitMedia/startbootstrap-clean-blog) fork过来，搭建在[leancloud](https://leancloud.cn)上的免费博客。
 
-## Getting Started
+## 如何使用？
 
-To use this theme, choose one of the following options to get started:
-* Download the latest release on Start Bootstrap
-* Fork this repository on GitHub
+成功运行这个项目需要以下步骤：
 
-## Bugs and Issues
+* 去[leancloud](https://leancloud.cn)上面注册账号，在控制台创建你的应用，并到云代码的设置里设置好域名。
+* 参考[云代码工具文档](https://leancloud.cn/docs/cloud_code_commandline.html)安装命令行工具
+* 安装[node](https://nodejs.org/download/),[bower](http://bower.io)和[grunt](http://www.gruntjs.org)
+* 在项目根目录下执行以下命令安装依赖包
+>        npm install
+>
+>        bower install
 
-Have a bug or an issue with this theme? [Open a new issue](https://github.com/IronSummitMedia/startbootstrap-clean-blog/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/clean-blog/).
+* 在leancloud上你的应用设置里找到应用的id和key,填入source/config/global.json和source/coffee/cloud/app.coffee里
 
-## Creator
+* 启动项目
+>        grunt default
 
-Start Bootstrap was created by and is maintained by **David Miller**, Managing Parter at [Iron Summit Media Strategies](http://www.ironsummitmedia.com/).
-
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-## Copyright and License
-
-Copyright 2013-2015 Iron Summit Media Strategies, LLC. Code released under the [Apache 2.0](https://github.com/IronSummitMedia/startbootstrap-clean-blog/blob/gh-pages/LICENSE) license.

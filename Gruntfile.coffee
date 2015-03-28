@@ -1,17 +1,41 @@
 module.exports = (grunt)->
     grunt.initConfig {
         assets: grunt.file.readJSON 'source/config/assets.json'
+
         uglify: {
-            target: {
-                files: [{
-                    expand: true
-                    cwd: 'build/public/js'
-                    src: ['**/*.js', '*.js']
-                    dest: 'build/public/js'
-                    ext: '.min.js'
-                    }]
+            options: {
+                mangle: {
+                    except: ['jQuery', 'angular']
                 }
+            }
+            dist: {
+                files: {
+                    'build/public/js/libs.min.js': '<%= assets.js %>' 
+                    'build/public/js/my.min.js': ['build/public/js/init.js', 'build/public/js/**/*.js', '!build/public/js/{my,libs,impress}*'] 
+                }
+            }
         }
+
+        cssmin: {
+            options: {
+                shorthandCompacting: false
+                roundingPrecision: -1
+            }
+            dist: {
+                files: {
+                    'build/public/css/libs.min.css': '<%= assets.css %>'
+                    'build/public/css/my.min.css': ['build/public/css/*.css', '!build/public/css/{libs,my,aboutme}*']
+                }
+            }
+        }
+
+        # ngmin: {
+        #     files: {
+        #         src: ['build/public/js/all.js']
+        #         dest: 'build/public/js/allmin.js'
+        #     }
+        # }
+
         less: {
             dev: {
                 options: {
@@ -71,38 +95,24 @@ module.exports = (grunt)->
                     dest: 'build/cloud/views'
                     }]
             }
-            config: {
+
+            impress: {
                 files: [{
                     expand: true
-                    cwd: 'source/config'
-                    src: '*.*'
-                    dest: 'build/config'
+                    cwd: 'bower_components/impress.js/js'
+                    src: ['impress.js']
+                    dest: 'build/public/js/'
                     }]
             }
-            bower: {
-                files: [{
-                    expand: true
-                    cwd: 'bower_components'
-                    src: '<%= assets.js %>'
-                    dest: 'build/public/js/lib'
-                    }]
-            }
-            css: {
-                files: [{
-                    expand: true
-                    cwd: 'bower_components'
-                    src: '<%= assets.css %>'
-                    dest: 'build/public/css'
-                    }]
-            }
-            map: {
-                files: [{
-                    expand: true
-                    cwd: 'bower_components'
-                    src: 'bootstrap/dist/css/bootstrap.css.map'
-                    dest: 'build/public/css'
-                    }]
-            }
+
+            # map: {
+            #     files: [{
+            #         expand: true
+            #         cwd: 'bower_components'
+            #         src: 'bootstrap/dist/css/bootstrap.css.map'
+            #         dest: 'build/public/css'
+            #         }]
+            # }
             font: {
                 files: [{
                     expand: true
@@ -115,19 +125,15 @@ module.exports = (grunt)->
         watch: {
             coffee: {
                 files: ['source/coffee/**/*.coffee', 'source/coffee/*.coffee']
-                tasks: ['coffee:dev']
+                tasks: ['coffee:dev', 'uglify']
             }
             less: {
                 files: ['source/less/*.less']
-                tasks: ['less:dev']
+                tasks: ['less:dev', 'cssmin']
             }
             view: {
                 files: ['source/views/**/*.*']
                 tasks: ['copy:views']
-            }
-            config: {
-                files: ['source/config/*.*']
-                tasks: ['copy:config']
             }
         }
         concurrent: {
@@ -140,6 +146,5 @@ module.exports = (grunt)->
 
     require('load-grunt-tasks')(grunt)
 
-    grunt.registerTask 'default', ['less:dev', 'coffee:dev', 'copy:config', 'copy:views', 'concurrent']
-    grunt.registerTask 'publish', ['less:dev', 'coffee:dev', 'uglify', 'copy']
-    grunt.registerTask 'updatelib', ['copy:bower', 'copy:css', 'copy:map', 'copy:font']
+    grunt.registerTask 'default', ['less:dev', 'coffee:dev',  'copy', 'cssmin', 'uglify', 'concurrent']
+    grunt.registerTask 'publish', ['less:dev', 'coffee:dev', 'copy', 'uglify', 'cssmin']

@@ -1,0 +1,56 @@
+<section data-ng-controller="HeaderCtr">
+   <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" ui-sref="home">雲神的世界</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ui-sref="home">首页</a>
+                    </li>
+                    <li ng-show="hasLogin">
+                        <a ui-sref="post">写博客</a>
+                    </li>
+                    <li ng-hide="hasLogin">
+                        <a ng-click="showLogin()">写博客</a>
+                    </li>
+                    <li>
+                        <a href="views/about.html" target="_blank">关于我</a>
+                    </li>
+                    <!-- <li>
+                        <a ui-sref="contact">联系我</a>
+                    </li> -->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+    
+    <header class="intro-header" style="background-image: url('img/{{headerInfo.img}}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>{{headerInfo.title}}</h1>
+                        <hr class="small">
+                        <span class="subheading">{{headerInfo.subtitle}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+</section>

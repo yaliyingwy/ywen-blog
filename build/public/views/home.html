@@ -1,0 +1,30 @@
+<section data-ng-controller="ArticleListCtr">
+        <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-preview" ng-repeat="article in articles">
+                    <a ui-sref="article({ articleId: article.id, art: article })">
+                        <h2 class="post-title">
+                            {{article.attributes.title}}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            <div sd-model-to-html="article.attributes.content"></div>
+                        </h3>
+                    </a>
+                    <p class="post-meta"><a>{{article.attributes.user.attributes.username}}</a> 发表于 {{article.updatedAt|date: 'yyyy年MM月dd日'}}</p>
+                </div>
+                <hr>
+                
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                        <a ng-click="more()">更早的文章 &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+</section>

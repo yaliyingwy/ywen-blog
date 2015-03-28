@@ -1,0 +1,660 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    min-height: 740px;
+
+    background: rgb(215, 215, 215);
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
+    background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:    -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:     -ms-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:      -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+    background:         radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+}
+
+b, strong { font-weight: bold }
+i, em { font-style: italic }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 0.1em;
+    background: rgba(255,255,255,0.5);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.9);
+    border-radius: 0.2em;
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+a:hover,
+a:focus {
+    background: rgba(255,255,255,1);
+    text-shadow: -1px -1px 2px rgba(100,100,100,0.5);
+}
+
+.fallback-message {
+    font-family: sans-serif;
+    line-height: 1.3;
+
+    width: 780px;
+    padding: 10px 10px 0;
+    margin: 20px auto;
+
+    border: 1px solid #E4C652;
+    border-radius: 10px;
+    background: #EEDC94;
+}
+
+.fallback-message p {
+    margin-bottom: 10px;
+}
+
+.impress-supported .fallback-message {
+    display: none;
+}
+
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-family: 'PT Serif', georgia, serif, 'Hiragino Sans GB', 'Microsoft YaHei';
+    font-size: 48px;
+    line-height: 1.5;
+}
+
+.impress-enabled .step {
+    margin: 0;
+    opacity: 0.3;
+
+    -webkit-transition: opacity 1s;
+    -moz-transition:    opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
+    transition:         opacity 1s;
+}
+
+.impress-enabled .step.active { opacity: 1 }
+
+.slide {
+    display: block;
+
+    width: 900px;
+    height: 700px;
+    padding: 40px 60px;
+
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+
+    color: rgb(102, 102, 102);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -1px;
+}
+
+.slide q {
+    display: block;
+    font-size: 50px;
+    line-height: 72px;
+
+    margin-top: 100px;
+}
+
+.slide q strong {
+    white-space: nowrap;
+}
+
+#title {
+    padding: 0;
+}
+
+#title .try {
+    font-size: 64px;
+    position: absolute;
+    top: -0.5em;
+    left: 1.5em;
+
+    -webkit-transform: translateZ(20px);
+    -moz-transform:    translateZ(20px);
+    -ms-transform:     translateZ(20px);
+    -o-transform:      translateZ(20px);
+    transform:         translateZ(20px);
+}
+
+#title h1 {
+    font-size: 190px;
+
+    -webkit-transform: translateZ(50px);
+    -moz-transform:    translateZ(50px);
+    -ms-transform:     translateZ(50px);
+    -o-transform:      translateZ(50px);
+    transform:         translateZ(50px);
+}
+
+#title .footnote {
+    font-size: 32px;
+}
+
+
+#mywords {
+    width: 1000px;
+    text-align: center;
+}
+
+#grow {
+    text-align: center;
+}
+
+#knowme {
+    font-size: 45px;
+}
+
+#imagination {
+    width: 600px;
+}
+
+#imagination .imagination {
+    font-size: 78px;
+}
+
+#findme {
+    width: 900px;
+    padding-bottom: 120px;
+
+    background-image: url(http://www.gravatar.com/avatar/318643095c83b914cf80a7f99f247fe6?s=160);
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+#prizeme p {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style:    preserve-3d; /* Y U need this Firefox?! */
+    -ms-transform-style:     preserve-3d;
+    -o-transform-style:      preserve-3d;
+    transform-style:         preserve-3d;
+}
+
+#prizeme span,
+#prizeme b {
+    display: inline-block;
+    -webkit-transform: translateZ(40px);
+    -moz-transform:    translateZ(40px);
+    -ms-transform:     translateZ(40px);
+    -o-transform:      translateZ(40px);
+     transform:        translateZ(40px);
+
+    -webkit-transition: 0.5s;
+    -moz-transition:    0.5s;
+    -ms-transition:     0.5s;
+    -o-transition:      0.5s;
+    transition:         0.5s;
+}
+
+#prizeme .horse {
+    -webkit-transform: translateZ(-40px);
+    -moz-transform:    translateZ(-40px);
+    -ms-transform:     translateZ(-40px);
+    -o-transform:      translateZ(-40px);
+    transform:         translateZ(-40px);
+}
+
+#prizeme .moutain {
+    -webkit-transform: translateZ(20px);
+    -moz-transform:    translateZ(20px);
+    -ms-transform:     translateZ(20px);
+    -o-transform:      translateZ(20px);
+    transform:         translateZ(20px);
+}
+
+#prizeme .hope {
+    -webkit-transform: translateZ(-40px);
+    -moz-transform:    translateZ(-40px);
+    -ms-transform:     translateZ(-40px);
+    -o-transform:      translateZ(-40px);
+    transform:         translateZ(-40px);
+}
+
+#prizeme .youare {
+    -webkit-transform: translateZ(60px);
+    -moz-transform:    translateZ(60px);
+    -ms-transform:     translateZ(60px);
+    -o-transform:      translateZ(60px);
+    transform:         translateZ(60px);
+}
+
+#prizeme .my {
+    -webkit-transform: translateZ(-10px);
+    -moz-transform:    translateZ(-10px);
+    -ms-transform:     translateZ(-10px);
+    -o-transform:      translateZ(-10px);
+    transform:         translateZ(-10px);
+}
+
+#prizeme.present span,
+#prizeme.present b {
+    -webkit-transform: translateZ(0px);
+    -moz-transform:    translateZ(0px);
+    -ms-transform:     translateZ(0px);
+    -o-transform:      translateZ(0px);
+    transform:         translateZ(0px);
+}
+
+
+#subcribe .adv {
+    font-size: 20px;
+}
+
+
+
+
+
+#overview { display: none }
+
+.impress-on-overview .step {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.hint {
+    
+    display: none;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 100px;
+
+    background: rgba(0,0,0,0.5);
+    color: #EEE;
+    text-align: center;
+
+    font-size: 50px;
+    padding: 20px;
+
+    z-index: 100;
+
+    opacity: 0;
+
+    -webkit-transform: translateY(400px);
+    -moz-transform:    translateY(400px);
+    -ms-transform:     translateY(400px);
+    -o-transform:      translateY(400px);
+    transform:         translateY(400px);
+    -webkit-transition: opacity 1s, -webkit-transform 0.5s 1s;
+    -moz-transition:    opacity 1s,    -moz-transform 0.5s 1s;
+    -ms-transition:     opacity 1s,     -ms-transform 0.5s 1s;
+    -o-transition:      opacity 1s,      -o-transform 0.5s 1s;
+    transition:         opacity 1s,         transform 0.5s 1s;
+}
+
+.impress-enabled .hint { display: block }
+
+.impress-on-welcome .hint {
+    opacity: 1;
+
+    -webkit-transform: translateY(0px);
+    -moz-transform:    translateY(0px);
+    -ms-transform:     translateY(0px);
+    -o-transform:      translateY(0px);
+    transform:         translateY(0px);
+
+    -webkit-transition: opacity 1s 3s, -webkit-transform 0.5s 2.5s;
+    -moz-transition:    opacity 1s 3s,    -moz-transform 0.5s 2.5s;
+    -ms-transition:     opacity 1s 3s,     -ms-transform 0.5s 2.5s;
+    -o-transition:      opacity 1s 3s,      -o-transform 0.5s 2.5s;
+    transition:         opacity 1s 3s,         transform 0.5s 2.5s;
+}
+
+.impress-enabled          { pointer-events: none }
+.impress-enabled #impress { pointer-events: auto }
+
+
+
+/*my style*/
+
+.randrect(@bg) {
+    background-color: @bg;
+    border-radius: 20px;
+    width: 600px;
+}
+
+.transY(@value, @delay) {
+    -webkit-transform: translateY(@value);
+    -moz-transform:    translateY(@value);
+    -ms-transform:     translateY(@value);
+    -o-transform:      translateY(@value);
+    transform:         translateY(@value);
+
+    -webkit-transition-delay: @delay;
+    -moz-transition-delay:    @delay;
+    -ms-transition-delay:     @delay;
+    -o-transition-delay:      @delay;
+    transition-delay:         @delay;
+}
+
+.transX(@value, @delay) {
+    -webkit-transform: translateX(@value);
+    -moz-transform:    translateX(@value);
+    -ms-transform:     translateX(@value);
+    -o-transform:      translateX(@value);
+    transform:         translateX(@value);
+
+    -webkit-transition-delay: @delay;
+    -moz-transition-delay:    @delay;
+    -ms-transition-delay:     @delay;
+    -o-transition-delay:      @delay;
+    transition-delay:         @delay;
+}
+
+#welcome {
+    text-align: center;
+    font-size: 40px;
+    line-height: 1;
+
+    .randrect(rgb(121, 82, 62));
+
+    .title {
+        font-size: 90px;
+        line-height: 150px;
+    }
+
+    .footnote {
+        font-size: 20px;
+    }
+}
+
+#me { 
+    .randrect(white);
+    
+    &.present {
+        .now_me {
+            font-size: 60px;
+            .transY(-10px, 0s);
+        }
+
+        .row1 {
+            color: blue;
+            .transY(10px, 0.25s);
+        }
+
+        .row2 {
+            color: yellow;
+            .transY(10px, 0.5s);
+        }
+
+        .row3 {
+            color: red;
+            .transY(10px, 0.75s);
+        }
+
+    }
+    b {
+        display: inline-block;
+        -webkit-transition: 0.5s;
+        -moz-transition:    0.5s;
+        -ms-transition:     0.5s;
+        -o-transition:      0.5s;
+        transition:         0.5s;
+    }
+
+}
+
+#dota {
+    .randrect(white);
+    .desc {
+        text-align: right;
+        font-size: 30px;
+    }
+    &.present {
+
+        .game {
+            color: green;
+            .transX(40px, 0.25s);
+        }
+
+        .yunshen {
+            color: purple;
+            .transX(40px, 0.75s);
+        }
+    }
+
+
+    b {
+        display: inline-block;
+        -webkit-transition: 0.5s;
+        -moz-transition:    0.5s;
+        -ms-transition:     0.5s;
+        -o-transition:      0.5s;
+        transition:         0.5s;
+    }
+
+}
+
+#beijing {
+    .randrect(white);
+
+    b {
+        display: inline-block;
+        -webkit-transition: 0.5s;
+        -moz-transition:    0.5s;
+        -ms-transition:     0.5s;
+        -o-transition:      0.5s;
+        transition:         0.5s;
+    }
+
+    &.present {
+        .trans {
+            color: red;
+            .transX(100px, 0.5s);
+        }
+    }
+
+    .footnote {
+        font-size: 15px;
+    }
+}
+
+
+#ball {
+    .randrect(white);
+    .footnote {
+        font-size: 15px;
+    }
+}
+
+#work {
+    color: green;
+}
+
+#tiny {
+    width: 500px;
+    text-align: center;
+    color: red;
+    font-size: 80px;
+}
+
+.color-frame(@from, @to) {
+    from {color: @from;}
+    to {color: @to;}
+}
+
+.generate-frames (@name, @from, @to) {
+    @keyframes @name {
+        .color-frame(@from, @to)
+    }
+
+    @-moz-keyframes @name {
+        .color-frame(@from, @to)
+    }
+
+    @-webkit-keyframes @name {
+        .color-frame(@from, @to)
+    }
+
+    @-o-keyframes @name {
+        .color-frame(@from, @to)
+    }
+}
+
+.generate-anim (@name, @sec) {
+    /*.@{name} {*/
+        animation: @name @sec;
+        -moz-animation: @name @sec; /* Firefox */
+        -webkit-animation: @name @sec;  /* Safari 和 Chrome */
+        -o-animation: @name @sec;
+    /*}*/
+}
+
+.generate-frames(gray2red, gray, red);
+.generate-frames(gray2green, gray, green);
+.generate-frames(gray2blue, gray, blue);
+.generate-frames(gray2orange, gray, orange);
+.generate-frames(gray2yellow, gray, yellow);
+.generate-frames(gray2coffee, gray, rgb(121, 82, 62));
+
+.generate-trans(@name, @color, @distance, @sec) {
+    .@{name} {
+        color: @color;
+        .transX(@distance, @sec);
+    }
+} 
+
+#coder {
+    width: 1000px;
+    text-align: center;
+    color: gray;
+
+    span {
+        display: inline-block;
+        -webkit-transition: 0.5s;
+        -moz-transition:    0.5s;
+        -ms-transition:     0.5s;
+        -o-transition:      0.5s;
+        transition:         0.5s;
+    }
+
+    &.present {
+        .generate-trans(t1, rgb(123, 45, 88), -4px, 0.15s);
+        .generate-trans(t2, blue, -3px, 0.3s);
+        .generate-trans(t3, rgb(121, 82, 62), -2px, 0.45s);
+        .generate-trans(t4, yellow, -1px, 0.6s);
+        .generate-trans(t5, green, 0px, 0.75s);
+        .generate-trans(t6, purple, 1px, 0.9s);
+        .generate-trans(t7, orange, 2px, 1.05s);
+        .generate-trans(t8, rgb(93, 100, 23), 3px, 1.2s);
+        .generate-trans(t9, red, 4px, 1.35s);
+        .generate-trans(t10, rgb(100, 224, 30), 5px, 1.5s);
+    }
+    
+}
+
+#tec {
+    p {
+        font-size: 30px;
+    }
+    a, span {
+        font-size: 18px;
+    }
+}
+
+#profile {
+    img {
+        width: 200px;
+        float: right;
+    }
+}
+
+#motto {
+    text-align: center;
+    b {
+        font-size: 70px;
+        color: darkred;
+        font-weight: bold
+    }
+
+    h1 {
+        font-size: 100px;
+        color: red;
+    }
+}
+
+#back {
+    width: 700px;
+    padding-bottom: 400px;
+
+    background-image: url();
+    background-position: bottom right;
+    background-repeat: no-repeat;
+
+    img {
+        width: 200px;
+        float: left;
+    }
+    a {
+        display: block;
+    }
+}
+
+

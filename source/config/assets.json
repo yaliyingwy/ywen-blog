@@ -1,14 +1,18 @@
 {
     "css": [
-        "bootstrap/dist/css/bootstrap.css",
-        "clean-blog.css"
+        "bower_components/bootstrap/dist/css/bootstrap.css"
     ],
     "js": [
-        "jquery/dist/jquery.js",
-        "bootstrap/dist/js/bootstrap.js",
-        "angular/angular.js",
-        "angular-bootstrap/ui-bootstrap.js",
-        "angular-resource/angular-resource.js",
-        "angular-ui-router/release/angular-ui-router.js"
+        "bower_components/angular/angular.js",
+        "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+        "bower_components/angular-ui-router/release/angular-ui-router.js",
+        "bower_components/showdown/src/showdown.js",
+        "bower_components/showdown/src/ng-showdown.js",
+        "bower_components/showdown/src/extensions/prettify.js",
+        "bower_components/showdown/src/extensions/table.js",
+        "bower_components/showdown/src/extensions/github.js",
+        "bower_components/jquery/dist/jquery.js",
+        "bower_components/bootstrap/dist/js/bootstrap.js"
+        
     ]
 }

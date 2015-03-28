@@ -1,0 +1,23 @@
+<div>
+
+    <div class="modal-header">
+        <h4 class="modal-title text-center">请登录</h4>
+    </div>
+    <div class="modal-body">
+        <form class="from-horizontal">
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" placeholder="用户名" ng-model="username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="passwd" placeholder="密码" ng-model="passwd">
+            </div>
+
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary pull-left" ng-click="login()">登录</button>
+        <button class="btn btn-warning pull-right" ng-click="cancel()">取消</button>
+    </div>
+
+</div>

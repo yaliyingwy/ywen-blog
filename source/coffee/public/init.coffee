@@ -1,17 +1,22 @@
 'use strict'
-
 angular.element(document).ready ->
-    angular.bootstrap document, 'blog'
+    angular.bootstrap document, ['blog']
 
-packageModules = []
+app = angular.module 'blog', ['ui.router', 'Showdown', 'ui.bootstrap']
 
-for m in window.modules
-    angular.module m.module, m.angularDependencies || []
-    packageModules.push m.module
+app.config ['$ShowdownProvider', ($ShowdownProvider)->
+    $ShowdownProvider.loadExtension 'prettify'
+    $ShowdownProvider.loadExtension 'table'
+    $ShowdownProvider.loadExtension 'github'
+]
 
-angular.module 'blog.articles', []
 
-modules = ['ngResource', 'ui.router', 'blog.articles']
-modules = modules.concat packageModules
+app.config ['$locationProvider', ($locationProvider)->
+    $locationProvider.hashPrefix '!'
+]
 
-angular.module 'blog', modules
+
+AV.initialize window.appId, window.appKey
+AV.User.logOut()
+
+

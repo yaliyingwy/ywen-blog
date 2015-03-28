@@ -1,0 +1,15 @@
+<div data-ng-controller="ArticleDetailCtr">
+    <article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div sd-model-to-html="content"></div>
+            </div>
+        </div>
+        <div class="row" ng-show="hasLogin">
+            <button class="btn btn-default col-md-2 col-md-offset-5" ng-click="goEdit()">编辑</button>
+        </div>
+    </div>
+    </article>
+    <div disqus shortname="yaliyingwy"></div>
+</div>

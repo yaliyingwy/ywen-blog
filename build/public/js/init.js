@@ -1,26 +1,29 @@
 (function() {
   'use strict';
-  var i, len, m, modules, packageModules, ref;
+  var app;
 
   angular.element(document).ready(function() {
-    return angular.bootstrap(document, 'blog');
+    return angular.bootstrap(document, ['blog']);
   });
 
-  packageModules = [];
+  app = angular.module('blog', ['ui.router', 'Showdown', 'ui.bootstrap']);
 
-  ref = window.modules;
-  for (i = 0, len = ref.length; i < len; i++) {
-    m = ref[i];
-    angular.module(m.module, m.angularDependencies || []);
-    packageModules.push(m.module);
-  }
+  app.config([
+    '$ShowdownProvider', function($ShowdownProvider) {
+      $ShowdownProvider.loadExtension('prettify');
+      $ShowdownProvider.loadExtension('table');
+      return $ShowdownProvider.loadExtension('github');
+    }
+  ]);
 
-  angular.module('blog.articles', []);
+  app.config([
+    '$locationProvider', function($locationProvider) {
+      return $locationProvider.hashPrefix('!');
+    }
+  ]);
 
-  modules = ['ngResource', 'ui.router', 'blog.articles'];
+  AV.initialize(window.appId, window.appKey);
 
-  modules = modules.concat(packageModules);
-
-  angular.module('blog', modules);
+  AV.User.logOut();
 
 }).call(this);
