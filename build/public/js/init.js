@@ -24,6 +24,4 @@
 
   AV.initialize(window.appId, window.appKey);
 
-  AV.User.logOut();
-
 }).call(this);

@@ -9,10 +9,10 @@
                             {{article.attributes.title}}
                         </h2>
                         <h3 class="post-subtitle">
-                            <div sd-model-to-html="article.attributes.content"></div>
+                            <div sd-model-to-html="article.attributes.content | limitTo: 200"></div>
                         </h3>
                     </a>
-                    <p class="post-meta"><a>{{article.attributes.user.attributes.username}}</a> 发表于 {{article.updatedAt|date: 'yyyy年MM月dd日'}}</p>
+                    <p class="post-meta"><a>{{article.attributes.user.attributes.username}}</a> 发表于 {{article.createdAt|date: 'yyyy年MM月dd日'}}</p>
                 </div>
                 <hr>
                 

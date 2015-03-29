@@ -9,6 +9,7 @@ app.factory 'Article', ['Global', '$q', (Global, $q)->
             query.limit 10
             query.skip skip
             query.include 'user'
+            query.descending 'createdAt'
             deferred = $q.defer()
 
             query.find {

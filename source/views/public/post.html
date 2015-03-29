@@ -4,10 +4,13 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div sd-model-to-html="content"></div>
-                <div ng-if="alert.show">
-                    <div class="alert alert-{{alert.type}}" >{{alert.msg}}</div>
+                <div class="edit-hint">
+                 <hr>
+                    <div ng-if="alert.show">
+                        <div class="alert alert-{{alert.type}}" >{{alert.msg}}</div>
+                    </div>
+                    <p class="alert-info">请使用markdown语法，效果可实时预览( ^ω^ )</p>
                 </div>
-                <p>请使用markdown语法，效果可实时预览( ^ω^ )</p>
                 <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
                 <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
                 <!-- NOTE: To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
@@ -22,7 +25,7 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>内容</label>
-                            <textarea rows="5" class="form-control" placeholder="内容" id="message" required data-validation-required-message="Please enter a message." ng-model="content" ng-change="alert.show = false"></textarea>
+                            <textarea rows="13" class="form-control" placeholder="内容" id="message" required data-validation-required-message="Please enter a message." ng-model="content" ng-change="alert.show = false"></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>

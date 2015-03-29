@@ -17,6 +17,5 @@ app.config ['$locationProvider', ($locationProvider)->
 
 
 AV.initialize window.appId, window.appKey
-AV.User.logOut()
 
 

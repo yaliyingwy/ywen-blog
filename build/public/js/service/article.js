@@ -13,6 +13,7 @@
           query.limit(10);
           query.skip(skip);
           query.include('user');
+          query.descending('createdAt');
           deferred = $q.defer();
           query.find({
             success: function(results) {

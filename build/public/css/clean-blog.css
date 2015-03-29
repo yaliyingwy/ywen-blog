@@ -222,8 +222,6 @@ hr.small {
   margin: 0;
   font-weight: 300;
   margin-bottom: 10px;
-  max-height: 200px;
-  overflow: hidden;
 }
 .post-preview > .post-meta {
   color: #808080;
